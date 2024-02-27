@@ -1,0 +1,39 @@
+#history
+sudo yum install git -y
+git --version
+sudo yum install -y maven
+mvn --version
+sudo wget https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.86/bin/apache-tomcat-9.0.86.tar.gz
+tar -xvzf apache-tomcat-9.0.86.tar.gz 
+sudo amazon-linux-extras install java-openjdk11 -y
+java --version
+sudo alternatives --config java
+java --version
+sudo yum install -y java-1.8.0-openjdk-devel -y
+sudo alternatives --config javac
+javac -version
+git clone https://github.com/sivakumar1204/myweb.git
+cd myweb/
+mvn clean install
+cd target/
+cp myweb-8.2.0.war /home/ec2-user/apache-tomcat-9.0.86/webapps/
+cd /home/ec2-user/apache-tomcat-9.0.86/webapps
+cd /home/ec2-user/apache-tomcat-9.0.86/
+cd bin/
+./shutdown.sh
+./startup.sh
++++++++++++++++++++++++++++++++++++++++++++
+Modify the index.jsp file
++++++++++++++++++++++++++++++++++++++++++++
+cd /home/ec2-user/myweb/src/main/webapp/
+cat index.jsp
+cd /home/ec2-user/myweb/
+mvn clean install
+cp myweb-8.2.0.war /home/ec2-user/apache-tomcat-9.0.86/webapps/
+cd /home/ec2-user/apache-tomcat-9.0.86/webapps
+cd /home/ec2-user/apache-tomcat-9.0.86/
+cd bin/
+./shutdown.sh
+./startup.sh
+
+ 
